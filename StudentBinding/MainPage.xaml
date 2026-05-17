@@ -12,7 +12,7 @@
                 Aspect="AspectFit"
                 HeightRequest="185"
                 SemanticProperties.Description="Student profile image"
-                Source="dotnet_bot.png" />
+                Source="{Binding CurrentStudent.Image}" />
 
             <!--  שם התלמיד  -->
             <Label
@@ -21,7 +21,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.HeadingLevel="Level1"
-                Text="ישראל ישראלי"
+                Text="{Binding CurrentStudent.Name}"
                 TextColor="MidnightBlue" />
 
             <!--  גיל  -->
@@ -31,12 +31,12 @@
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student age"
                 SemanticProperties.HeadingLevel="Level2"
-                Text="16"
+                Text="{Binding CurrentStudent.Age}"
                 TextColor="MidnightBlue" />
 
             <!--  תאריך לידה  -->
             <DatePicker
-                Date="01/01/2000"
+                Date="{Binding CurrentStudent.BirthDate,Mode = TwoWay"
                 FontSize="24"
                 HorizontalOptions="Center"
                 SemanticProperties.Description="Student birth date"
@@ -48,18 +48,22 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student email address"
-                Text="joe@gmail.com"
+                Text="{Binding CurrentStudent.Email}"
                 TextColor="MidnightBlue" />
 
             <!--  טלפון  -->
             <Label
-                FontSize="24"
+          FontSize="24"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 SemanticProperties.Description="Student phone number"
-                Text="050-1234567"
+                Text="{Binding CurrentStudent.Phone}"
                 TextColor="MidnightBlue" />
             <Button Text="עדכן תאריך לידה" />
+            <Button Text="החלף סטודנט"
+                    Clicked="OnChangeStudentClicked"
+                    BackgroundColor="MidnightBlue"
+              TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 
